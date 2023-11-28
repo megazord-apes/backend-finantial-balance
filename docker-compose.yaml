@@ -5,11 +5,11 @@ services:
     image: postgres:latest
     container_name: financial-balance-postgres
     environment:
-      POSTGRES_DB: ${POSTGRES_DB:-data_base}
-      POSTGRES_USER: ${POSTGRES_USER:-user}
-      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-password}
+      POSTGRES_DB: ${DATABASE_DB:-data_base}
+      POSTGRES_USER: ${DATABASE_USER:-user}
+      POSTGRES_PASSWORD: ${DATABASE_PASSWORD:-password}
     ports:
-      - "5432:5432"
+      - "${DATABASE_PORT}:${DATABASE_PORT}"
     networks:
       - financial-balance-network
     volumes:
